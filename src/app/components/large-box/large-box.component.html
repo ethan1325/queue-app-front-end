@@ -1,7 +1,7 @@
 <div class="d-flex position-relative flex-column text-center">
     <div class="p-2" *ngIf="currentQueue?.table;else isEmpty">
         <p class="text-white display-1 fw-bolder">ANTRIAN {{currentQueue?.id}}</p>
-        <p class="text-white display-6">Dimohon Menuju <span style="color:yellow">Meja {{currentQueue?.table}}</span></p>
+        <p class="text-white display-6">Sedang Dilayani di <span style="color:yellow">Meja {{currentQueue?.table}}</span></p>
     </div>
     <ng-template #isEmpty>
         <p class="text-white display-1 fw-bolder">ANTRIAN {{currentQueue?.id}}</p>
