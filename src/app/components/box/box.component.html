@@ -1,0 +1,6 @@
+<div class="border rounded h-100 d-flex align-items-center justify-content-center text-secondary p-2 flex-column" style="background-color: rgb(240, 247, 255);">
+    <h2>MEJA {{table.id}}</h2>
+    <small *ngIf="table.queue_id; else noTable">Sedang melayani antrian {{table.queue_id}}</small>
+    <ng-template #noTable><small>Siap melayani</small>
+    </ng-template>
+</div>
