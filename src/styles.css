@@ -10,7 +10,6 @@ html {
     display: flex;
     margin: 40px;
     justify-content: center;
-    align-items: center;
     border-radius: 25px;
     background: linear-gradient(135deg, #b721ff, #21d4fd);
 }

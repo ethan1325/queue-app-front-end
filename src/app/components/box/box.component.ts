@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { QueueService } from '../../services/queue.service';
 import { Table } from 'src/app/Table';
 
@@ -13,7 +13,6 @@ export class BoxComponent implements OnInit {
   constructor(private queueService:QueueService) { }
 
   ngOnInit(): void {
-    
-  } 
-
+  }
+  
 }

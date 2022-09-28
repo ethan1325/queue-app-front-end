@@ -9,7 +9,8 @@ import { Queue } from 'src/app/Queue';
 export class LargeBoxComponent implements OnInit {
   @Input() currentQueue?: Queue;
   @Output() onAddQueue: EventEmitter<Queue> = new EventEmitter();
-  @Output() onEndqueue: EventEmitter<Queue> = new EventEmitter();
+  @Output() onEndQueue: EventEmitter<Queue> = new EventEmitter();
+  @Output() onAssignQueue: EventEmitter<Queue> =  new EventEmitter();
 
   constructor() { }
 
@@ -21,7 +22,12 @@ export class LargeBoxComponent implements OnInit {
   }
 
   endQueue(){
-    this.onEndqueue.emit();
+    this.onEndQueue.emit();
   }
+
+  assignQueue(){
+    this.onAssignQueue.emit();
+  }
+
 
 }

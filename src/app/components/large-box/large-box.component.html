@@ -1,20 +1,25 @@
 <div class="d-flex position-relative flex-column text-center">
-    <div class="p-2" *ngIf="currentQueue?.table;else isEmpty">
+    <ng-container class="p-2" *ngIf="currentQueue?.status==='served'">
         <p class="text-white display-1 fw-bolder">ANTRIAN {{currentQueue?.id}}</p>
         <p class="text-white display-6">Sedang Dilayani di <span style="color:yellow">Meja {{currentQueue?.table}}</span></p>
-    </div>
-    <ng-template #isEmpty>
+    </ng-container>
+    <ng-container *ngIf="currentQueue?.status==='waiting'">
         <p class="text-white display-1 fw-bolder">ANTRIAN {{currentQueue?.id}}</p>
-        <p class="text-white display-6">Mohon menunggu</p>
-    </ng-template>
+        <p class="text-white display-6">Mohon menunggu meja kosong</p>
+    </ng-container>
+    <ng-container *ngIf="currentQueue?.status==='assigned'">
+        <p class="text-white display-1 fw-bolder">ANTRIAN {{currentQueue?.id}}</p>
+        <p class="text-white display-6">Mohon Menuju <span style="color:yellow">Meja {{currentQueue?.table}}</span></p>
+    </ng-container>
     <div class="mb-2">
         <a data-bs-toggle="collapse" [attr.data-bs-target]="'#test' + currentQueue?.id" aria-expanded="false" aria-controls="collapseExample">
             <img src="../../../assets/settings.png" alt="" class="settings">
         </a>
         <div class="collapse" [attr.id]="'test' + currentQueue?.id">
-            <div class="d-flex gap-2 text-center p-2">
-                <div class="btn btn-primary text-white w-50" (click)="addQueue()">Tambah</div>
-                <div class="btn btn-primary text-white w-50" (click)="endQueue()">Hapus</div>
+            <div class="d-flex gap-2 text-center p-2 justify-content-center">
+                <div class="btn btn-primary text-white d-flex align-items-center justify-content-center" style="width: 30%" (click)="addQueue()">Tambah</div>
+                <div class="btn btn-primary text-white d-flex align-items-center justify-content-center" style="width: 30%" (click)="endQueue()">Selesaikan</div>
+                <div class="btn btn-primary text-white d-flex align-items-center justify-content-center" style="width: 30%" (click)="assignQueue()" *ngIf="currentQueue?.status ==='assigned'">Menuju Meja</div>
             </div>
         </div>
     </div>
