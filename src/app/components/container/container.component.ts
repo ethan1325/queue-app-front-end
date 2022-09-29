@@ -119,12 +119,17 @@ export class ContainerComponent implements OnInit {
           status: "available",
           time: 0
         }
+        console.log(newTable);
         this.tableService.saveTable(newTable).subscribe();
         this.tables[newTable.id - 1] = newTable;
+        console.log(this.tables);
       }
       //menghapus data antrian di client
       this.queues.splice(index!, 1);
       //menambah class active agar carousel berjalan dengan baik
+      for(let i = 0; i < this.carouselItems!.length; i++){
+        this.carouselItems?.get(i)?.nativeElement.classList.remove('active');
+      }
       this.carouselItems?.get(index! - 1)?.nativeElement.classList.add('active');
       let nextQueue: Queue = { id: -1, status: 'waiting' };
       for (let i = 0; i < this.queues.length; i++) {
@@ -143,7 +148,7 @@ export class ContainerComponent implements OnInit {
       } else {
         for (let i = 0; i < this.tables.length; i++) {
           //kalau meja tersedia
-          if (!this.tables[i].queue_id && this.tables[i].status === "available") {
+          if (this.tables[i].status === "available") {
             //mengatur field meja di queue
             nextQueue.table = this.tables[i].id;
             //mengatur data dan status meja
@@ -165,7 +170,7 @@ export class ContainerComponent implements OnInit {
               confirmButtonText: 'OK',
               heightAuto: false
             })
-            break;
+            return;
           }
         }
         Swal.fire({
@@ -183,7 +188,7 @@ export class ContainerComponent implements OnInit {
       var currID = this.queues[id].id;
       queue.status = "served";
       this.queues[id] = queue;
-      this.queueService.updateQueue(queue).subscribe();
+      this.queueService.updateQueue(queue).subscribe(); 
       this.carouselItems?.get(0)?.nativeElement.classList.add("active");
       let updatedTable = this.tables[queue.table! - 1];
       updatedTable.status = "unavailable";
@@ -198,7 +203,7 @@ export class ContainerComponent implements OnInit {
       })
 
       var intervalID = setInterval(() => {
-        if (this.tables[updatedTable.id - 1].status === "available") {
+        if (this.tables[updatedTable.id - 1].status != "unavailable") {
           clearInterval(intervalID);
           updatedTable.time = 0;  
         } else {
