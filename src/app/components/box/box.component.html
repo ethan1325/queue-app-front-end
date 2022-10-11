@@ -1,8 +1,8 @@
-<div class="border rounded h-100 d-flex align-items-center justify-content-center text-secondary p-2 flex-column text-center" style="background-color: rgb(240, 247, 255);">
+<div class="border rounded h-100 d-flex align-items-center justify-content-center text-secondary p-2 flex-column text-center" style="background-color: #e8ddf9">
     <h2>MEJA {{table.id}}</h2>
     <div *ngIf="table.status==='unavailable'">
         <small>Sedang melayani antrian {{table.queue_id}}</small>
-        <h5 class="text-primary" *ngIf="table.time">{{table.time}}</h5>
+        <h5 style="color:#2D1674" *ngIf="table.time">{{table.time}}</h5>
     </div>
     <small *ngIf="table.status==='booked'">Sedang menunggu antrian {{table.queue_id}}</small>
     <small *ngIf="table.status==='available'">Siap melayani</small>

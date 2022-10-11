@@ -1,4 +1,5 @@
-<div class="d-flex flex-column align-items-center gap-2 p-3 pt-0 h-100">
+<a (click)="logout()"><img src="../../../assets/logout.png" alt="" class="logout"></a>
+<div class="d-flex flex-column align-items-center gap-2 p-3 pt-0 h-100" style="background-color:#FFF2FF">
     <div id="carouselExampleControls" class="carousel slide w-75 rounded box h-100 p-2" data-bs-ride="carousel">
         <div class="carousel-inner" *ngIf="queues.length;else empty">
             <div class="carousel-item" *ngFor="let queue of queues; let i = index" [ngClass]="{'active': queue.id === queues[0].id}" #carouselItems>
@@ -14,7 +15,7 @@
                     </a>
                     <div class="collapse" id="collapseEmpty">
                         <div class="mt-3">
-                            <div class="btn btn-primary text-white w-25" (click)="addQueue()">Tambah</div>
+                            <div class="btn btn-primary text-white w-25 border-0" style="background-color: #2D1674;" (click)="addQueue()">Tambah</div>
                         </div>
                     </div>
                 </div>

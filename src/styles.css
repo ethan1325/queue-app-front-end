@@ -11,11 +11,11 @@ html {
     margin: 40px;
     justify-content: center;
     border-radius: 25px;
-    background: linear-gradient(135deg, #b721ff, #21d4fd);
+    background: linear-gradient(135deg, #2D1674, #9271C2);
 }
 
 .box::before {
-    background: linear-gradient(135deg, #b721ff, #21d4fd);
+    background: linear-gradient(135deg, #2D1674, #9271C2);
     content: "";
     position: absolute;
     width: 100%;

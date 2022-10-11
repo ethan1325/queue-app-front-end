@@ -1,6 +1,8 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { findIndex, Subject } from 'rxjs';
 import { Queue } from 'src/app/Queue';
+import { AuthService } from 'src/app/services/auth.service';
 import { QueueService } from 'src/app/services/queue.service';
 import { TableService } from 'src/app/services/table.service';
 import { Table } from 'src/app/Table';
@@ -17,7 +19,7 @@ export class ContainerComponent implements OnInit {
   tables: Table[] = [];
   @ViewChildren('carouselItems') carouselItems?: QueryList<ElementRef>;
 
-  constructor(private queueService: QueueService, private tableService: TableService) { }
+  constructor(private queueService: QueueService, private tableService: TableService, private authService: AuthService) { }
 
   ngOnInit(): void {
     //get dan sort semua data antrian yang ada
@@ -119,10 +121,10 @@ export class ContainerComponent implements OnInit {
           status: "available",
           time: 0
         }
-        console.log(newTable);
+        // console.log(newTable);
         this.tableService.saveTable(newTable).subscribe();
         this.tables[newTable.id - 1] = newTable;
-        console.log(this.tables);
+        // console.log(this.tables);
       }
       //menghapus data antrian di client
       this.queues.splice(index!, 1);
@@ -217,5 +219,9 @@ export class ContainerComponent implements OnInit {
         }
       }, 1000);
     });
+  }
+
+  logout(){
+    this.authService.logout();
   }
 }

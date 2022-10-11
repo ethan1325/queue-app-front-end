@@ -17,9 +17,9 @@
         </a>
         <div class="collapse" [attr.id]="'test' + currentQueue?.id">
             <div class="d-flex gap-2 text-center p-2 justify-content-center">
-                <div class="btn btn-primary text-white d-flex align-items-center justify-content-center" style="width: 30%" (click)="addQueue()">Tambah</div>
-                <div class="btn btn-primary text-white d-flex align-items-center justify-content-center" style="width: 30%" (click)="endQueue()">Selesaikan</div>
-                <div class="btn btn-primary text-white d-flex align-items-center justify-content-center" style="width: 30%" (click)="assignQueue()" *ngIf="currentQueue?.status ==='assigned'">Menuju Meja</div>
+                <div class="btn btn-primary border-0 text-white d-flex align-items-center justify-content-center" style="width: 30%; background: #2D1674" (click)="addQueue()">Tambah</div>
+                <div class="btn btn-primary border-0 text-white d-flex align-items-center justify-content-center" style="width: 30%; background: #2D1674" (click)="endQueue()">Selesaikan</div>
+                <div class="btn btn-primary border-0 text-white d-flex align-items-center justify-content-center" style="width: 30%; background: #2D1674" (click)="assignQueue()" *ngIf="currentQueue?.status ==='assigned'">Menuju Meja</div>
             </div>
         </div>
     </div>

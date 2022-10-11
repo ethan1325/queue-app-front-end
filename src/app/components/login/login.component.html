@@ -1,0 +1,20 @@
+<div class="min-vh-100 d-flex justify-content-center align-items-center" style="background-color: #FFF2FF">
+    <div class="card w-50 border-0 my-3 d-flex border shadow py-2">
+        <img src="../../../assets/logo.png" alt="" class="w-50 align-self-center">
+        <h3 class="card-title text-center" style="color: #2D1674">SIGN IN</h3>
+        <div class="p-3">
+            <form class="d-flex flex-column" (ngSubmit)="onSubmit()">
+                <div class="mb-2">
+                    <label for="username" style="color:#2D1674">Username</label>
+                    <input type="text" class="form-control mb-2" placeholder="Username" name="username" [(ngModel)]="username">
+                </div>
+                <div class="mb-2">
+                    <label for="password" style="color:#2D1674">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password">
+                </div>
+                <a href="register" class="align-self-center text-decoration-none m-2 text-center" style="color: #2D1674">Don't have an account yet?</a>
+                <button type="submit" class="btn btn-primary border-0" style="background-color: #2D1674;">LOGIN</button>
+            </form>
+        </div>
+    </div>
+</div>
