@@ -1,8 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Queue } from '../Queue';
-import { identifierName } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
